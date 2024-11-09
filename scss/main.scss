@@ -1,0 +1,350 @@
+@import "config";
+@import "menu";
+@import "home";
+@import "services";
+@import "contact";
+@import "sign-in";
+@import "sign-up";
+@import "responsive";
+
+html {
+  @include transition-ease;
+}
+
+header {
+  .nav {
+    img {
+      background: $white-color;
+      width: 25px;
+      height: 25px;
+      padding: 0;
+      margin: 0;
+      border: 3px solid $white-color;
+    }
+
+    .menu-nav__item.active > a {
+      color: $primary-color;
+    }
+  }
+
+  /* Beginning of cart code */
+  .cart__openBtn,
+  .cart__closeBtn {
+    cursor: pointer;
+  }
+
+  .cart__closeBtn {
+    position: fixed;
+    font-size: 1.5rem;
+    @include transition-ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    @include transition-ease;
+    background: rgba(112, 112, 112, 0.5);
+    z-index: 4;
+    visibility: hidden;
+  }
+
+  .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow: auto;
+    z-index: 5;
+    background: $black-color;
+    padding: 1.5rem;
+    @include transition-ease;
+    border: 2px groove $secondary-color;
+    transform: translateX(100%);
+    text-align: center;
+    font-family: "Baloo 2", cursive;
+    color: $white-color;
+  }
+
+  .span-primary {
+    color: $primary-color;
+  }
+
+  .transparentBcg {
+    visibility: visible;
+  }
+
+  .showcart {
+    transform: translateX(0);
+  }
+
+  .item-display {
+    color: $black-color;
+  }
+
+  .total {
+    font-size: 1.5rem;
+  }
+
+  .one1,
+  .two2,
+  .three3,
+  .four4,
+  .five5,
+  .six6,
+  .seven7,
+  .eight8,
+  .nine9,
+  .ten10,
+  .eleven11,
+  .twelve12 {
+    &-cart-item {
+      display: grid;
+      align-items: center;
+      /* Below: has three children */
+      /* image, text, buttons on the far right */
+      grid-template-columns: auto 1fr auto;
+      grid-column-gap: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+      color: $white-color;
+
+      img {
+        width: 125px;
+        height: 125px;
+        border-radius: 4rem;
+        padding: 0;
+        margin: 5%;
+        border: 5px solid $primary-color;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      h4 {
+        font-size: 1.125rem;
+        margin: 0.25rem 0;
+      }
+
+      .item-amount {
+        &1,
+        &2,
+        &3,
+        &4,
+        &5,
+        &6,
+        &7,
+        &8,
+        &9,
+        &10,
+        &11,
+        &12 {
+          text-align: center;
+        }
+      }
+
+      .remove-item {
+        &-1,
+        &-2,
+        &-3,
+        &-4,
+        &-5,
+        &-6,
+        &-7,
+        &-8,
+        &-9,
+        &-10,
+        &-11,
+        &-12 {
+          color: grey;
+          cursor: pointer;
+          @include transition-ease;
+
+          &:hover {
+            color: $white-color;
+          }
+        }
+      }
+
+      .fa-chevron-up,
+      .fa-chevron-down {
+        color: $primary-color;
+        cursor: pointer;
+        @include transition-ease;
+
+        &:hover {
+          color: $hover-color;
+        }
+      }
+    }
+  }
+  /* End of cart code */
+  /* Beginning of View code */
+  .one,
+  .two,
+  .three,
+  .four,
+  .five,
+  .six,
+  .seven,
+  .eight,
+  .nine,
+  .ten,
+  .eleven,
+  .twelve {
+    &__view__openBtn,
+    &__view__closeBtn {
+      cursor: pointer;
+    }
+
+    &__view__closeBtn {
+      position: fixed;
+      right: 5%;
+      font-size: 1.5rem;
+      @include transition-ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    &__view-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include transition-ease;
+      background: rgba(112, 112, 112, 0.5);
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    &__view {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow: auto;
+      z-index: 5;
+      background: $black-color;
+      padding: 1.5rem;
+      @include transition-ease;
+      border: 2px groove $secondary-color;
+      transform: translateX(-100%);
+      text-align: center;
+      font-family: "Baloo 2", cursive;
+      color: $white-color;
+    }
+
+    &__transparentBcg {
+      visibility: visible;
+    }
+
+    &__showview {
+      transform: translateX(0);
+    }
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+    margin: 1.5rem 0;
+    border-radius: 20rem;
+    border: 5px solid $primary-color;
+  }
+
+  .nutritional_info {
+    text-align: left;
+
+    h2 {
+      text-align: center;
+    }
+
+    .bar {
+      margin: 0.25rem 0;
+      padding: 0.25rem 0;
+
+      &-large {
+        border-bottom: 5px solid $white-color;
+      }
+
+      &-medium {
+        border-bottom: 2px solid $white-color;
+      }
+
+      &-small {
+        border-bottom: 1px solid $white-color;
+      }
+    }
+
+    .span-right {
+      float: right;
+    }
+
+    .span-align-right {
+      text-align: right;
+    }
+
+    .indent {
+      text-indent: 2rem;
+    }
+  }
+
+  .ingredients,
+  .allergens {
+    margin: 1.5rem 0;
+    h2 {
+      color: $primary-color;
+    }
+  }
+  /* End of View code */
+}
+
+.logo-first {
+  color: $secondary-color;
+  text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(37, 37, 37),
+    -1px 1px 0 rgb(37, 37, 37), 1px 1px 0 rgb(37, 37, 37);
+}
+
+.logo-last {
+  color: $primary-color;
+  text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(37, 37, 37),
+    -1px 1px 0 rgb(37, 37, 37), 1px 1px 0 rgb(37, 37, 37);
+}
+
+footer {
+  font-family: "Baloo 2", cursive;
+
+  .icons {
+    font-size: 2.5rem;
+    display: inline;
+    padding: 0;
+    margin: 0;
+
+    a {
+      color: $black-color;
+      outline: none;
+      text-decoration: none;
+      margin: 0.5rem;
+      @include transition-ease;
+
+      &:hover {
+        color: $hover-color;
+      }
+    }
+  }
+
+  .copyright {
+    padding: 0;
+    margin-top: 2rem;
+    float: right;
+  }
+}
